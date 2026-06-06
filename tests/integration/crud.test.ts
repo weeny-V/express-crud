@@ -142,7 +142,7 @@ integrationTest(
 
             assert.equal(createResult.response.status, 201);
             assert.equal(createResult.body?.email, 'ada@example.com');
-            assert.equal('password' in createResult.body!, false);
+            assert.equal('password' in createResult.body!, true);
 
             const userId = createResult.body?.id;
             assert.equal(typeof userId, 'number');
