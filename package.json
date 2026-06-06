@@ -1,0 +1,45 @@
+{
+    "name": "express-js",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon --exec npx tsx server.ts",
+        "lint": "oxlint .",
+        "lint:fix": "oxlint . --fix",
+        "format": "prettier . --write",
+        "format:check": "prettier . --check",
+        "build": "tsc",
+        "start": "node dist/server.js",
+        "test": "npm run build && node --test \"dist/tests/**/*.test.js\"",
+        "test:integration": "npm run build && node --test \"dist/tests/integration/**/*.test.js\"",
+        "migrate:create": "node-pg-migrate create -m database/migrations -j ts",
+        "migrate:up": "node-pg-migrate up -m database/migrations",
+        "migrate:down": "node-pg-migrate down -m database/migrations",
+        "seed": "node --loader ts-node/esm database/seeds/index.ts"
+    },
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "class-validator": "^0.15.1",
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "dotenv": "^17.4.2",
+        "express": "5.0.0",
+        "http-errors": "~1.6.3",
+        "morgan": "~1.9.1",
+        "pg": "^8.21.0"
+    },
+    "devDependencies": {
+        "@types/bcrypt": "^6.0.0",
+        "@types/express": "^5.0.6",
+        "@types/node": "^25.9.1",
+        "@types/pg": "^8.20.0",
+        "node-pg-migrate": "^8.0.4",
+        "nodemon": "^3.1.14",
+        "oxlint": "^1.62.0",
+        "prettier": "^3.6.2",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.22.4",
+        "typescript": "^6.0.3"
+    }
+}
